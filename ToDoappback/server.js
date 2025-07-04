@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
@@ -95,6 +96,8 @@ app.delete("/todos/:id",async(req,res)=>{
 })
 //start the server
 const port= process.env.PORT || 8000;
+const mongoURI = process.env.MONGODB_URI;
+mongoose.connect(mongoURI)
 app.listen(port,()=>{
     console.log("Server listening to port "+port);
 })
