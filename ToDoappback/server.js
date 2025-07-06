@@ -94,9 +94,7 @@ app.delete("/todos/:id",async(req,res)=>{
 const port= process.env.PORT || 8000;
 
 const mongoURI = process.env.MONGODB_URI;
-mongoose.connect(mongoURI)
-.then(() => console.log('DB connected'))
-  .catch((err) => console.log(err));
+
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
