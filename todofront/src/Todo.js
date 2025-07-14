@@ -60,7 +60,7 @@ export default function Todo(){
         setEditTitle(item.title);
         setEditDescription(item.description)
     }
-    const handleUpdate= ()=>{
+    const handleUpdate= (editId)=>{
         setError("");
         //check input
         if(editTitle.trim()!== '' && editDescription.trim()!==''){
@@ -148,7 +148,7 @@ export default function Todo(){
 
                         </div>
                         <div className="d-flex gap-2">
-                        { editId ===-1 ?<button className="btn btn-warning" onClick={()=>handleEdit(item)}>Edit</button> : <button className="btn btn-warning"onClick={handleUpdate}>Update</button>}                    
+                        { editId ===-1 ?<button className="btn btn-warning" onClick={()=>handleEdit(item)}>Edit</button> : <button className="btn btn-warning"onClick={()=>handleUpdate(item._id)}>Update</button>}                    
                         { editId ===-1 ? <button className="btn btn-danger" onClick={()=>handleDelete(item._id)}>Delete</button> :
                         <button className="btn btn-danger" onClick={handleEditCancle}>Cancle</button>}
                         </div>
