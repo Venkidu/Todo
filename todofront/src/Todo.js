@@ -9,7 +9,8 @@ export default function Todo(){
     const[editId,setEditId]=useState(-1)
      const[editTitle,setEditTitle]=useState("");
     const[editDescription,setEditDescription]=useState("");
-    const apiUrl="http://localhost:8000"
+    const apiUrl=process.env.REACT_APP_API_URL;
+
 
  
     const handleSubmit=()=>{

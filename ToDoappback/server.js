@@ -95,12 +95,10 @@ const port= process.env.PORT || 8000;
 
 const mongoURI = process.env.MONGODB_URI;
 
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+mongoose.connect(mongoURI)
   .then(() => console.log('✅ MongoDB connected'))
   .catch(err => console.error('Mongo error:', err));
+
 app.get('/', (_req, res) => {
   res.send('API is running');
 });
