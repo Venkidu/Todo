@@ -42,16 +42,17 @@ export default function Todo(){
             })
         }
     }
-    const getItems=()=>{
-        fetch(apiUrl+"/todos")
-        .then((res)=>res.json())
-        .then((res)=>{
-            setTodos(res);
-        }); 
-    };
-    useEffect(()=>{
-      getItems();
-    },[]);
+    const getItems = useCallback(() => {
+    fetch(apiUrl + "/todos")
+      .then((res) => res.json())
+      .then((res) => {
+        setTodos(res);
+      });
+  }, [apiUrl]);
+
+  useEffect(() => {
+    getItems();
+  }, [getItems]);
     const handleEdit=(item)=>{
         setEditId(item._id); 
         setEditTitle(item.title);
