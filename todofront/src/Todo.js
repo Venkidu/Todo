@@ -26,14 +26,16 @@ export default function Todo(){
                 body: JSON.stringify({title,description})
             }).then((res)=>{
                 if(res.ok){
-                    setTodos([...todos,{title,description}])
+                    res.json().then((newTodo) => {
+                    setTodos([...todos, newTodo]); 
                     setTitle("");
                     setDescription("");
-                    setMessage("Item added successfully")
+                    setMessage("Item added successfully");
                     setTimeout(()=>{
                         setMessage("");
 
                     },3000)
+                });
                 }else{
                     setError("Unable to create Todo item")
                 }
