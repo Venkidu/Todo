@@ -73,7 +73,7 @@ export default function Todo(){
                 if(res.ok){
                     //update item to list
                     const updatedTodos=todos.map((item)=>{
-                        if(item._id==editId){
+                        if(item._id===editId){
                             item.title=editTitle;
                             item.description=editDescription;
                         }
@@ -133,7 +133,7 @@ export default function Todo(){
                         todos.map((item)=><li className="list-group-item bg-info d-flex justify-content-between align-items-center my-2">
                         <div className="d-flex flex-column me-2">
                             {
-                                editId == -1 || editId !== item._id ? <>
+                                editId === -1 || editId !== item._id ? <>
                                 <span className="fw-bold d-flex">{item.title}</span>
                                 <span className="d-flex">{item.description}</span>
                                 </> :<>
@@ -146,8 +146,8 @@ export default function Todo(){
 
                         </div>
                         <div className="d-flex gap-2">
-                        { editId ==-1 ?<button className="btn btn-warning" onClick={()=>handleEdit(item)}>Edit</button> : <button className="btn btn-warning"onClick={handleUpdate}>Update</button>}                    
-                        { editId ==-1 ? <button className="btn btn-danger" onClick={()=>handleDelete(item._id)}>Delete</button> :
+                        { editId ===-1 ?<button className="btn btn-warning" onClick={()=>handleEdit(item)}>Edit</button> : <button className="btn btn-warning"onClick={handleUpdate}>Update</button>}                    
+                        { editId ===-1 ? <button className="btn btn-danger" onClick={()=>handleDelete(item._id)}>Delete</button> :
                         <button className="btn btn-danger" onClick={handleEditCancle}>Cancle</button>}
                         </div>
                     </li>)
